@@ -34,7 +34,17 @@ kb_hemofilia = FolKB(map(expr, [
     'Ortu(Rahmat,Farah)','Ortu(Rahmat,Dewi)','Ortu(Nur,Farah)','Ortu(Nur,Dewi)','Ortu(Budi,Joko)','Ortu(Budi,Dedi)','Ortu(Siti,Joko)','Ortu(Siti,Dedi)','Ortu(Ade,Aisyah)','Ortu(Reni,Aisyah)','Ortu(Joko,Adi)','Ortu(Joko,Rizky)','Ortu(Joko,Amira)','Ortu(Dewi,Adi)','Ortu(Dewi,Rizky)','Ortu(Dewi,Amira)','Ortu(Dedi,Sherly)','Ortu(Dedi,Fathia)','Ortu(Dedi,Balqis)','Ortu(Aisyah,Sherly)','Ortu(Aisyah,Fathia)','Ortu(Aisyah,Balqis)',
     
     'SaudaraKandung(Farah,Dewi)','SaudaraKandung(Joko,Dedi)','SaudaraKandung(Adi,Rizky)','SaudaraKandung(Adi,Amira)','SaudaraKandung(Rizky,Amira)','SaudaraKandung(Sherly,Fathia)','SaudaraKandung(Sherly,Balqis)','SaudaraKandung(Fathia,Balqis)',
+    
+    'XHXh(Nur)', 'XHXh(Siti)', 'XHXh(Dewi)', 'XHXh(Amira)', 'XHXh(Sherly)', 'XHXh(Fathia)', 'XHXh(Balqis)',
 
+    'XHXH(Reni)', 'XHXH(Aisyah)',
+
+    'XhXh(Farah)',
+
+    'XhY(Rahmat)', 'XhY(Dedi)', 'XhY(Adi)', 'XhY(Rizky)',
+    
+    'XHY(Budi)', 'XHY(Ade)', 'XHY(Joko)',
+    
     #Relasi
     
 ]))      
