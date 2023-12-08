@@ -35,16 +35,38 @@ kb_hemofilia = FolKB(map(expr, [
     
     'SaudaraKandung(Farah,Dewi)','SaudaraKandung(Joko,Dedi)','SaudaraKandung(Adi,Rizky)','SaudaraKandung(Adi,Amira)','SaudaraKandung(Rizky,Amira)','SaudaraKandung(Sherly,Fathia)','SaudaraKandung(Sherly,Balqis)','SaudaraKandung(Fathia,Balqis)',
     
-    'XHXh(Nur)', 'XHXh(Siti)', 'XHXh(Dewi)', 'XHXh(Amira)', 'XHXh(Sherly)', 'XHXh(Fathia)', 'XHXh(Balqis)',
+    'XHXH(Nur)',
+    'XhXh(Siti)', 'XHXh(Reni)',
 
-    'XHXH(Reni)', 'XHXH(Aisyah)',
-
-    'XhXh(Farah)',
-
-    'XhY(Rahmat)', 'XhY(Dedi)', 'XhY(Adi)', 'XhY(Rizky)',
-    
-    'XHY(Budi)', 'XHY(Ade)', 'XHY(Joko)',
+    'XHY(Rahmat)', 'XHY(Budi)', 'XhY(Ade)',
     
     #Relasi
-    
-]))      
+    '(Perempuan(p) & (Ortu(i, p) & XHXH(i)) & (Ortu(j, p) & XHY(j))) ==> XHXH(p)', 
+    '(Laki(p) & (Ortu(i, p) & XHXH(i)) & (Ortu(j, p) & XHY(j))) ==> XHY(p)', 
+
+    '(Perempuan(p) & (Ortu(i, p) & XHXH(i)) & (Ortu(j, p) & XhY(j))) ==> XHXh(p)',
+    '(Laki(p) & (Ortu(i, p) & XHXH(i)) & (Ortu(j, p) & XhY(j))) ==> XHY(p)',
+
+    '(Perempuan(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XHY(j))) ==> Tidak_diketahui(p)',
+    '(Laki(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XHY(j))) ==> Tidak_diketahui(p)',
+
+    '(Perempuan(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XhY(j))) ==> Tidak_diketahui(p)',
+    '(Laki(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XhY(j))) ==> Tidak_diketahui(p)',
+
+    '(Perempuan(p) & (Ortu(i, p) & XhXh(i)) & (Ortu(j, p) & XHY(j))) ==> XHXh(p)',
+    '(Laki(p) & (Ortu(i, p) & XhXh(i)) & (Ortu(j, p) & XHY(j))) ==> XhY(p)',
+
+    '(Perempuan(p) & (Ortu(i, p) & XhXh(i)) & (Ortu(j, p) & XhY(j))) ==> XhXh(p)',
+    '(Laki(p) & (Ortu(i, p) & XhXh(i)) & (Ortu(j, p) & XhY(j))) ==> XHY(p)',
+
+    '(Ortu(i, p) & Tidak_diketahui(i)) ==> Tidak_diketahui(p)',
+    'XHXH(p) ==> Sehat(p)',
+    'XHY(p) ==> Sehat(p)',
+]))    
+print(kb_hemofilia.ask_generator('XHXH(x)'))
+print(kb_hemofilia.ask_generator('XHXh(x)'))
+print(kb_hemofilia.ask_generator('XhXh(x)'))
+print(kb_hemofilia.ask_generator('XHY(x)'))
+print(kb_hemofilia.ask_generator('XhY(x)'))
+print(kb_hemofilia.ask_generator('Tidak_diketahui(x)'))
+print(kb_hemofilia.ask_generator('Sehat(x)'))
