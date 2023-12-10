@@ -27,13 +27,15 @@ class FolKB(KB):
 kb_hemofilia = FolKB(map(expr, [
     'Laki(Rahmat)','Laki(Budi)','Laki(Ade)','Laki(Joko)','Laki(Dedi)','Laki(Adi)','Laki(Rizky)',
 
-    'Perempuan(Nur)','Perempuan(Siti)','Perempuan(Reni)','Perempuan(Farah)','Perempuan(Dewi)','Perempuan(Aisyah)','Perempuan(Amira)','Perempuan(Sherly)','Perempuan(Fathia)','Perempuan(Balqis)',
+    'Perempuan(Nur)','Perempuan(Siti)','Perempuan(Reni)','Perempuan(Farah)','Perempuan(Dewi)',
+    'Perempuan(Aisyah)','Perempuan(Amira)', 'Perempuan(Sherly)','Perempuan(Fathia)',
+    'Perempuan(Balqis)',
 
-    'Nikah(Rahmat,Nur)','Nikah(Budi,Siti)','Nikah(Ade,Reni)','Nikah(Joko,Dewi)','Nikah(Dedi,Aisyah)',
-
-    'Ortu(Rahmat,Farah)','Ortu(Rahmat,Dewi)','Ortu(Nur,Farah)','Ortu(Nur,Dewi)','Ortu(Budi,Joko)','Ortu(Budi,Dedi)','Ortu(Siti,Joko)','Ortu(Siti,Dedi)','Ortu(Ade,Aisyah)','Ortu(Reni,Aisyah)','Ortu(Joko,Adi)','Ortu(Joko,Rizky)','Ortu(Joko,Amira)','Ortu(Dewi,Adi)','Ortu(Dewi,Rizky)','Ortu(Dewi,Amira)','Ortu(Dedi,Sherly)','Ortu(Dedi,Fathia)','Ortu(Dedi,Balqis)','Ortu(Aisyah,Sherly)','Ortu(Aisyah,Fathia)','Ortu(Aisyah,Balqis)',
-    
-    'SaudaraKandung(Farah,Dewi)','SaudaraKandung(Joko,Dedi)','SaudaraKandung(Adi,Rizky)','SaudaraKandung(Adi,Amira)','SaudaraKandung(Rizky,Amira)','SaudaraKandung(Sherly,Fathia)','SaudaraKandung(Sherly,Balqis)','SaudaraKandung(Fathia,Balqis)',
+    'Ortu(Rahmat,Farah)','Ortu(Rahmat,Dewi)','Ortu(Nur,Farah)','Ortu(Nur,Dewi)','Ortu(Budi,Joko)',
+    'Ortu(Budi,Dedi)','Ortu(Siti,Joko)', 'Ortu(Siti,Dedi)','Ortu(Ade,Aisyah)','Ortu(Reni,Aisyah)',
+    'Ortu(Joko,Adi)','Ortu(Joko,Rizky)','Ortu(Joko,Amira)','Ortu(Dewi,Adi)', 'Ortu(Dewi,Rizky)',
+    'Ortu(Dewi,Amira)','Ortu(Dedi,Sherly)','Ortu(Dedi,Fathia)','Ortu(Dedi,Balqis)',
+    'Ortu(Aisyah,Sherly)', 'Ortu(Aisyah,Fathia)','Ortu(Aisyah,Balqis)',
     
     'XHXH(Nur)',
     'XhXh(Siti)', 'XHXh(Reni)',
@@ -49,7 +51,7 @@ kb_hemofilia = FolKB(map(expr, [
 
     '(Perempuan(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XHY(j))) ==> Tidak_diketahui(p)',
     '(Laki(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XHY(j))) ==> Tidak_diketahui(p)',
-
+    
     '(Perempuan(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XhY(j))) ==> Tidak_diketahui(p)',
     '(Laki(p) & (Ortu(i, p) & XHXh(i)) & (Ortu(j, p) & XhY(j))) ==> Tidak_diketahui(p)',
 
@@ -60,12 +62,18 @@ kb_hemofilia = FolKB(map(expr, [
     '(Laki(p) & (Ortu(i, p) & XhXh(i)) & (Ortu(j, p) & XhY(j))) ==> XHY(p)',
 
     '(Ortu(i, p) & Tidak_diketahui(i)) ==> Tidak_diketahui(p)',
+
     'XHXH(p) & Ortu(i, p) ==> AnakPerempuanSehat(p, i)',
     'XHY(p) & Ortu(i, p) ==> AnakLakiSehat(p, i)',
-    'XHXh(p) & Ortu(i, p) & Laki(i) ==> AnakPerempuanCarrier(p, i)',
+    'XHXh(p) & Ortu(i, p) ==> AnakPerempuanCarrier(p, i)',
+    'XhXh(p) & Ortu(i, p) ==> AnakPerempuanHemofilia(p, i)',
     'XhY(p) & Ortu(i, p) ==> AnakLakiHemofilia(p, i)',
+    
     'XHXH(p) ==> Sehat(p)',
     'XHY(p) ==> Sehat(p)',
+    'XHXh(p) ==> Cariier(p)',
+    'XhXh(p) ==> Hemofilia(p)',
+    'XhY(p) ==> Hemofilia(p)',
 ]))
 #Menentukan Anak Perempuan Carrier
 print("1. Siapakah anak perempuan dari Rahmat yang mengidap carrier hemofilia?")
