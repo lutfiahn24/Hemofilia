@@ -9,7 +9,7 @@ Program ini disusun menggunakan repositori `aima-python`, tepatnya modul `logic.
 Repositori `aima-python`: [aimacode](https://github.com/aimacode/aima-python)
 
 ## Family Tree
-!(https://imgur.com/a/z8JtGkt)
+![https://imgur.com/a/z8JtGkt](https://i.imgur.com/O2x5mBc.png)
 
 ## Anggota Kelompok
 | NIM | Nama |
