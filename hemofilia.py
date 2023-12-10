@@ -60,13 +60,44 @@ kb_hemofilia = FolKB(map(expr, [
     '(Laki(p) & (Ortu(i, p) & XhXh(i)) & (Ortu(j, p) & XhY(j))) ==> XHY(p)',
 
     '(Ortu(i, p) & Tidak_diketahui(i)) ==> Tidak_diketahui(p)',
+    'XHXH(p) & Ortu(i, p) ==> AnakPerempuanSehat(p, i)',
+    'XHY(p) & Ortu(i, p) ==> AnakLakiSehat(p, i)',
+    'XHXh(p) & Ortu(i, p) & Laki(i) ==> AnakPerempuanCarrier(p, i)',
+    'XhY(p) & Ortu(i, p) ==> AnakLakiHemofilia(p, i)',
     'XHXH(p) ==> Sehat(p)',
     'XHY(p) ==> Sehat(p)',
-]))    
-print(kb_hemofilia.ask_generator('XHXH(x)'))
-print(kb_hemofilia.ask_generator('XHXh(x)'))
-print(kb_hemofilia.ask_generator('XhXh(x)'))
-print(kb_hemofilia.ask_generator('XHY(x)'))
-print(kb_hemofilia.ask_generator('XhY(x)'))
-print(kb_hemofilia.ask_generator('Tidak_diketahui(x)'))
-print(kb_hemofilia.ask_generator('Sehat(x)'))
+]))
+#Menentukan Anak Perempuan Carrier
+print("1. Siapakah anak perempuan dari Rahmat yang mengidap carrier hemofilia?")
+print(kb_hemofilia.ask_generator('AnakPerempuanCarrier(x, Rahmat)'), "\n")
+#Menentukan Anak Laki-laki Sehat
+print("2. Siapakah anak laki-laki dari Dewi yang sehat?")
+print(kb_hemofilia.ask_generator('AnakLakiSehat(x, Dewi)'), "\n")
+#Menentukan Anak Laki-laki Hemofilia
+print("3. Siapakah anak laki-laki dari Ade yang mengidap hemofilia?")
+print(kb_hemofilia.ask_generator('AnakLakiHemofilia(x, Ade)'), "\n")
+#Menentukan Pengidap Hemofilia dari Anak Perempuan Carrier
+print("4. Jika Amira adalah carrier hemofilia, siapa yang mengidap hemofilia?")
+print(kb_hemofilia.ask_generator('AnakPerempuanCarrier(Amira, x)'), "\n")
+#Menentukan Perempuan Sehat
+print("5. Dalam family tree, siapa saja yang merupakan perempuan sehat?")
+print(kb_hemofilia.ask_generator('XHXH(x)'), "\n")
+#Menentukan Perempuan Carrier
+print("6. Dalam family tree, siapa saja yang merupakan perempuan carrier?")
+print(kb_hemofilia.ask_generator('XHXh(x)'), "\n")
+#Menentukan Perempuan Hemofilia
+print("7. Dalam family tree, siapa saja yang merupakan perempuan hemofilia?")
+print(kb_hemofilia.ask_generator('XhXh(x)'), "\n")
+#Menentukan Laki-laki Sehat
+print("8. Dalam family tree, siapa saja yang merupakan laki-laki sehat?")
+print(kb_hemofilia.ask_generator('XHY(x)'), "\n")
+#Menentukan Laki-laki Hemofilia
+print("9. Dalam family tree, siapa saja yang merupakan laki-laki hemofilia?")
+print(kb_hemofilia.ask_generator('XhY(x)'), "\n")
+#Menentukan Anggota yang Memiliki Beragam Kemungkinan
+print("10. Dalam family tree, siapa saja yang berpotensi sehat atau carrier atau hemofilia?")
+print(kb_hemofilia.ask_generator('Tidak_diketahui(x)'), "\n")
+
+#Menentukan Anggota yang Sehat
+print("11. Dalam family tree, siapa saja yang sehat?")
+print(kb_hemofilia.ask_generator('Sehat(x)'), "\n")
