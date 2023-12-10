@@ -97,7 +97,6 @@ print(kb_hemofilia.ask_generator('XhY(x)'), "\n")
 #Menentukan Anggota yang Memiliki Beragam Kemungkinan
 print("10. Dalam family tree, siapa saja yang berpotensi sehat atau carrier atau hemofilia?")
 print(kb_hemofilia.ask_generator('Tidak_diketahui(x)'), "\n")
-
 #Menentukan Anggota yang Sehat
 print("11. Dalam family tree, siapa saja yang sehat?")
 print(kb_hemofilia.ask_generator('Sehat(x)'), "\n")
